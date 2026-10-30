@@ -275,9 +275,34 @@ h1, h2 { letter-spacing: -0.02em; line-height: 1.15; }
 }
 .site-footer .brand { color: var(--on-navy); font-size: 16px; margin-right: 0; }
 
+/* Open a project page by clicking anywhere on its card */
+.card:has(.details-link) { position: relative; }
+.details-link { color: var(--green); font-weight: 700; text-decoration: none; }
+.details-link::after { content: ""; position: absolute; inset: 0; }
+.card .actions a { position: relative; z-index: 1; }
+.project .frame img { object-fit: cover; }
+
+/* Project details pages */
+.back { display: inline-block; margin-bottom: 24px; color: var(--on-navy-soft); font-weight: 600; text-decoration: none; }
+.back:hover { color: var(--mint); }
+.detail-hero { display: grid; gap: 16px; justify-items: start; }
+.detail-hero h1 { font-size: clamp(36px, 5vw, 56px); font-weight: 800; }
+.detail-hero .lede { margin-bottom: 8px; }
+.detail-grid { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+.detail-main { display: grid; gap: 32px; min-width: 0; }
+.detail-main section { display: grid; gap: 12px; }
+.detail-main h2, .gallery-title { font-size: 26px; font-weight: 800; }
+.detail-side { display: grid; gap: 20px; padding: 24px; min-width: 0; }
+.gallery-title { margin-bottom: 24px; }
+.gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.gallery figure { display: grid; gap: 10px; margin: 0; min-width: 0; }
+.gallery img, .gallery .frame { width: 100%; height: 420px; border-radius: 16px; background: var(--placeholder); }
+.gallery img { object-fit: contain; }
+.gallery figcaption { color: var(--fg-soft); font-size: 15px; }
+
 /* Tablet */
 @media (max-width: 960px) {
-  .hero .wrap, .featured, .about .wrap { grid-template-columns: minmax(0, 1fr); }
+  .hero .wrap, .featured, .about .wrap, .detail-grid { grid-template-columns: minmax(0, 1fr); }
   .project-grid, .skill-grid, .comp-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .robot { width: min(70%, 280px); }
@@ -291,7 +316,8 @@ h1, h2 { letter-spacing: -0.02em; line-height: 1.15; }
 @media (max-width: 640px) {
   .band { padding-block: 56px; }
   .hero { padding-block: 48px; }
-  .project-grid, .skill-grid, .comp-grid, .exp-grid, .contact-grid { grid-template-columns: minmax(0, 1fr); }
+  .project-grid, .skill-grid, .comp-grid, .exp-grid, .contact-grid, .gallery { grid-template-columns: minmax(0, 1fr); }
+  .gallery img, .gallery .frame { height: 320px; }
   .featured { padding: 20px; }
   .stats { gap: 28px; }
   .site-header .header-cv { display: none; }

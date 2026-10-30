@@ -50,7 +50,10 @@ const spy = new IntersectionObserver((entries) => {
     }
   });
 }, { rootMargin: "-45% 0px -50% 0px" });
-links.forEach((link) => spy.observe(document.querySelector(link.hash)));
+links.forEach((link) => {
+  const section = document.querySelector(link.hash);
+  if (section) spy.observe(section);
+});
 
 // Phone menu: open with the button, close after picking a link
 const menu = document.getElementById("menu");

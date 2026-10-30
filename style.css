@@ -281,6 +281,7 @@ h1, h2 { letter-spacing: -0.02em; line-height: 1.15; }
 .details-link::after { content: ""; position: absolute; inset: 0; }
 .card .actions a { position: relative; z-index: 1; }
 .project .frame img { object-fit: cover; }
+.project .frame:not(:has(img)) { display: none; }
 
 /* Project details pages */
 .back { display: inline-block; margin-bottom: 24px; color: var(--on-navy-soft); font-weight: 600; text-decoration: none; }

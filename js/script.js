@@ -51,7 +51,7 @@ const spy = new IntersectionObserver((entries) => {
   });
 }, { rootMargin: "-45% 0px -50% 0px" });
 links.forEach((link) => {
-  const section = document.querySelector(link.hash);
+  const section = link.hash && document.querySelector(link.hash);
   if (section) spy.observe(section);
 });
 

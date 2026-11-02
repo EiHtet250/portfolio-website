@@ -39,6 +39,16 @@ if (!calm) {
     };
     requestAnimationFrame(tick);
   });
+
+  // Load the 3D Spline robot, then swap it in for the flat one
+  const robotBox = document.querySelector(".robot-box");
+  if (robotBox) {
+    const spline = document.createElement("script");
+    spline.type = "module";
+    spline.src = "https://cdn.spline.design/@splinetool/viewer@2.0.127/build/spline-viewer.js";
+    document.head.append(spline);
+    robotBox.querySelector("spline-viewer").addEventListener("load-complete", () => robotBox.classList.add("ready"));
+  }
 }
 
 // Underline the menu link for the section on screen
